@@ -13,11 +13,13 @@
   "dependencies": {
     "@auth0/nextjs-auth0": "^1.5.0",
     "@geist-ui/react": "^2.1.5",
+    "firebase": "^8.9.1",
     "inter-ui": "^3.19.2",
     "next": "11.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-hamburger-menu": "^1.2.1"
+    "react-hamburger-menu": "^1.2.1",
+    "react-indiana-drag-scroll": "^2.0.1"
   },
   "devDependencies": {
     "@types/react": "^17.0.15",

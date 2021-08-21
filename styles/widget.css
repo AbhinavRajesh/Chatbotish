@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+.chatbotish__container {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.chatbotish__button {
+  background-color: #10b981;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+.chatbotish__button:hover {
+  background-color: #34d399;
+}
+.chatbotish__buttonImage {
+  height: 30px;
+  width: 30px;
+}
+.chatbotish__close {
+  font-size: 20px;
+  color: white;
+}
+.chatbotish__screen {
+  box-sizing: border-box;
+  width: 320px;
+  height: 500px;
+  overflow-y: scroll;
+  border-radius: 10px 10px 0px 10px;
+  box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  position: relative;
+  overflow-y: overlay;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+.chatbotish__screen::-webkit-scrollbar-thumb,
+.chatbotish__nav::-webkit-scrollbar-thumb {
+  width: 5px;
+  height: 5px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.chatbotish__screen::-webkit-scrollbar,
+.chatbotish__nav::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background-color: transparent;
+}
+.chatbotish__topBar {
+  padding: 40px 0px 5px 20px;
+  background: #38ef7d;
+  background: -webkit-linear-gradient(to right, #11998e, #38ef7d);
+  background: linear-gradient(to right, #11998e, #38ef7d);
+}
+.chatbotish__topBar h4 {
+  font-weight: 500;
+  font-size: 24px;
+  color: white;
+  margin: 0;
+}
+.chatbotish__nav {
+  overflow-x: scroll;
+  display: flex;
+  margin-top: 10px;
+  padding: 10px 0 5px 0;
+}
+.chatbotish__navItem {
+  cursor: pointer;
+  user-select: none;
+  padding: 5px 10px;
+  margin-right: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: white;
+  color: black;
+  border-radius: 20px;
+  white-space: nowrap;
+  box-shadow: 3px 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+.chatbotish__activeTab {
+  background: black;
+  /* background: -webkit-linear-gradient(to right, #38ef7d, #11998e);
+  background: linear-gradient(to right, #38ef7d, #11998e); */
+  color: white;
+}
+.chatbotish__bottomBar {
+  padding: 10px 20px;
+  flex-grow: 1;
+}
+.chatbotish__feedbackForm {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+.chatbotish__feedbackForm label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+.chatbotish__feedbackForm input,
+.chatbotish__feedbackForm textarea {
+  font-family: "Poppins", sans-serif;
+  padding: 5px 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  outline: none;
+  resize: none;
+}
+.chatbotish__feedbackForm textarea::-webkit-scrollbar {
+  display: none;
+}
+.chatbotish__feedbackForm button {
+  padding: 5px 10px;
+  background: #38ef7d;
+  background: -webkit-linear-gradient(to right, #11998e, #38ef7d);
+  background: linear-gradient(to right, #11998e, #38ef7d);
+  border-radius: 5px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin: 10px 0;
+  font-weight: 500;
+}
+.chatbotish__powered {
+  bottom: 0;
+  padding: 10px;
+  text-align: center;
+  background-color: rgb(245, 245, 245);
+  font-size: 12px;
+  font-weight: 500;
+}
+.chatbotish__powered a {
+  color: #10b981;
+  text-decoration: none;
+}
+.chatbotish__powered a:hover {
+  color: #11998e;
+  text-decoration: underline;
+}
+.chatbotish__FAQ {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  padding: 5px 0;
+}
+.chatbotish__FAQQuestion {
+  font-weight: 600;
+}
+.chatbotish__FAQAnswer span {
+  font-weight: 600;
+}

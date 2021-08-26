@@ -10,31 +10,46 @@ export interface DomainSnapshot {
 }
 
 export interface Domain {
+  name: string;
+  greeting: string;
+  domain: string;
   enabled: Options;
-  FAQ: FAQ;
-  bug: any[];
+  faq: FAQ[];
+  bug: Bug[];
   feature: Feature[];
   feedback: Feedback[];
+  contact: any[];
 }
 
+export interface Bug {
+  date: number;
+  bug: string;
+  email: string;
+  steps: string;
+}
 export interface Options {
-  FAQ: boolean;
+  checked: boolean;
+  faq: boolean;
   bug: boolean;
   feature: boolean;
   feedback: boolean;
+  contact: boolean;
 }
 
 export interface FAQ {
+  id: number;
   question: string;
   answer: string;
 }
 
 export interface Feature {
+  date: number;
   email: string;
   feature: string;
 }
 
 export interface Feedback {
+  date: number;
   email: string;
   feedback: string;
 }

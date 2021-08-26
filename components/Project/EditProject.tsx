@@ -1,15 +1,16 @@
-import { withPageAuthRequired } from "@auth0/nextjs-auth0";
-import Header from "@components/Dashboard/dashboardHeader";
 import FAQ from "@components/New/FAQ";
 import Screen from "@components/Widget/Screen";
 import { Button, Card, Input, Text, Toggle, useToasts } from "@geist-ui/react";
-import { UserContext } from "@context/UserContext";
-import { useRouter } from "next/router";
-import { useContext, useEffect, useState } from "react";
-import { User } from "types";
+import { useEffect, useState } from "react";
+import { Domain } from "types";
 import { db } from "@utils/firebase";
 
-export default withPageAuthRequired(function New({ user: auth0user }) {
+interface Props {
+  id: string;
+}
+
+export default function EditProject({ id }: Props) {
+  const [data, setData] = useState<Domain>();
   const [projectName, setProjectName] = useState<string>("");
   const [domain, setDomain] = useState<string>("");
   const [greeting, setGreeting] = useState("Hey 👋");
@@ -29,10 +30,30 @@ export default withPageAuthRequired(function New({ user: auth0user }) {
     { id: number; question: string; answer: string }[]
   >([]);
 
-  const router = useRouter();
-  const { setUser } = useContext(UserContext);
+  useEffect(() => {
+    if (id) getData();
+  }, [id]);
 
-  const addProject = async (e: any) => {
+  const getData = async () => {
+    const data = (
+      await db.collection("project").doc(id).get()
+    ).data() as Domain;
+    setData(data);
+
+    setProjectName(data.name);
+    setDomain(data.domain);
+    setGreeting(data.greeting);
+
+    setFeedback(data.enabled.feedback);
+    setBug(data.enabled.bug);
+    setFeature(data.enabled.feature);
+    setContact(data.enabled.contact);
+    setFaq(data.enabled.faq);
+
+    setFaqs(data.faq.map((f, i) => ({ ...f, id: i })));
+  };
+
+  const editProject = async (e: any) => {
     e.preventDefault();
     setLoading(true);
     if (projectName.trim().length === 0) {
@@ -57,7 +78,7 @@ export default withPageAuthRequired(function New({ user: auth0user }) {
       });
     }
     if (feedback || bug || feature || faq || contact) {
-      const data = {
+      const newData = {
         name: projectName,
         domain: domain,
         greeting: greeting,
@@ -68,37 +89,21 @@ export default withPageAuthRequired(function New({ user: auth0user }) {
           faq,
           contact,
         },
-        feedback: [],
-        bug: [],
-        feature: [],
+        feedback: data.feedback,
+        bug: data.bug,
+        feature: data.feedback,
         faq: [],
-        contact: [],
+        contact: data.feedback,
       };
-      if (faq) data.faq = faqs;
+      if (faq) newData.faq = faqs;
       // ! Need to implement the contact
-      if (contact) data.contact = [];
+      if (contact) newData.contact = [];
       try {
-        const project = await db.collection("project").add(data);
-        const userRef = db.collection("users").doc(auth0user.email);
-        const dbUser = (await userRef.get()).data() as User;
-        const updatedUser = {
-          ...dbUser,
-          domains: [...dbUser!.domains, project.id],
-          domainSnapshot: [
-            ...dbUser.domainSnapshot,
-            {
-              id: project.id,
-              name: projectName,
-            },
-          ],
-        } as User;
-        await userRef.set(updatedUser, { merge: true });
-        setUser(updatedUser);
+        await db.collection("project").doc(id).set(newData, { merge: true });
         setToast({
-          text: "Created Project Successfully!.",
+          text: "Updated Project Successfully!.",
           type: "success",
         });
-        router.push(`/project/${project.id}`);
       } catch (err) {
         setToast({
           text: "Some error occured while adding the project. Please try again later.",
@@ -125,10 +130,9 @@ export default withPageAuthRequired(function New({ user: auth0user }) {
 
   return (
     <div className="max-w-5xl mx-auto">
-      <Header auth0user={auth0user} />
       <form
         id="new"
-        onSubmit={addProject}
+        onSubmit={editProject}
         className="flex flex-col items-start justify-center my-8 "
       >
         <Input
@@ -249,4 +253,4 @@ export default withPageAuthRequired(function New({ user: auth0user }) {
       </form>
     </div>
   );
-});
+}

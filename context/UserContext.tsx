@@ -46,7 +46,7 @@ const UserProvider = (props: any) => {
               domainSnapshot: [],
             });
           } else {
-            setUser(snapshot.data() as any);
+            setUser(snapshot.data() as User);
           }
         });
     } else {
@@ -59,7 +59,7 @@ const UserProvider = (props: any) => {
       getUser!();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
+  }, [auth0User]);
 
   return (
     <UserContext.Provider value={{ user, getUser, setUser }}>

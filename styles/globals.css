@@ -624,9 +624,13 @@ video {
 	margin-left: 0.5rem;
 	margin-right: 0.5rem;
 }
-.my-2 {
-	margin-top: 0.5rem;
-	margin-bottom: 0.5rem;
+.my-4 {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+.\!my-0 {
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
 }
 .\!mt-4 {
 	margin-top: 1rem !important;
@@ -637,20 +641,41 @@ video {
 .mb-4 {
 	margin-bottom: 1rem;
 }
-.mt-3 {
-	margin-top: 0.75rem;
+.mb-2 {
+	margin-bottom: 0.5rem;
 }
 .\!mt-3 {
 	margin-top: 0.75rem !important;
 }
-.mb-2 {
-	margin-bottom: 0.5rem;
+.mt-3 {
+	margin-top: 0.75rem;
+}
+.\!mb-0 {
+	margin-bottom: 0px !important;
+}
+.\!mt-2 {
+	margin-top: 0.5rem !important;
+}
+.\!mb-8 {
+	margin-bottom: 2rem !important;
+}
+.mt-4 {
+	margin-top: 1rem;
 }
 .flex {
 	display: flex;
 }
+.\!flex {
+	display: flex !important;
+}
 .grid {
 	display: grid;
+}
+.contents {
+	display: contents;
+}
+.h-screen {
+	height: 100vh;
 }
 .h-\[100vh\] {
 	height: 100vh;
@@ -697,6 +722,9 @@ video {
 .justify-between {
 	justify-content: space-between;
 }
+.\!justify-between {
+	justify-content: space-between !important;
+}
 .gap-5 {
 	gap: 1.25rem;
 }
@@ -735,13 +763,13 @@ video {
 	-webkit-background-clip: text;
 	        background-clip: text;
 }
-.px-16 {
-	padding-left: 4rem;
-	padding-right: 4rem;
-}
 .px-4 {
 	padding-left: 1rem;
 	padding-right: 1rem;
+}
+.px-16 {
+	padding-left: 4rem;
+	padding-right: 4rem;
 }
 .py-3 {
 	padding-top: 0.75rem;
@@ -779,6 +807,14 @@ video {
 	font-size: 1.125rem;
 	line-height: 1.75rem;
 }
+.text-xl {
+	font-size: 1.25rem;
+	line-height: 1.75rem;
+}
+.text-base {
+	font-size: 1rem;
+	line-height: 1.5rem;
+}
 .font-extrabold {
 	font-weight: 800;
 }
@@ -787,6 +823,16 @@ video {
 }
 .font-semibold {
 	font-weight: 600;
+}
+.\!font-bold {
+	font-weight: 700 !important;
+}
+.font-normal {
+	font-weight: 400;
+}
+.text-blue-500 {
+	--tw-text-opacity: 1;
+	color: rgba(59, 130, 246, var(--tw-text-opacity));
 }
 .text-transparent {
 	color: transparent;
@@ -799,9 +845,13 @@ video {
 	--tw-text-opacity: 1;
 	color: rgba(37, 99, 235, var(--tw-text-opacity));
 }
-.text-blue-500 {
+.text-gray-400 {
 	--tw-text-opacity: 1;
-	color: rgba(59, 130, 246, var(--tw-text-opacity));
+	color: rgba(156, 163, 175, var(--tw-text-opacity));
+}
+.\!text-blue-500 {
+	--tw-text-opacity: 1 !important;
+	color: rgba(59, 130, 246, var(--tw-text-opacity)) !important;
 }
 .filter {
 	filter: var(--tw-filter);

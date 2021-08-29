@@ -10,20 +10,6 @@
   flex-direction: column;
   align-items: flex-end;
 }
-.chatbotish__button {
-  background-color: #10b981;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  user-select: none;
-}
-.chatbotish__button:hover {
-  background-color: #34d399;
-}
 .chatbotish__buttonImage {
   height: 30px;
   width: 30px;

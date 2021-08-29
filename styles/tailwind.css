@@ -3,3 +3,7 @@
 @tailwind utilities;
 
 @import url("./widget.css");
+
+* {
+  scroll-behavior: smooth;
+}

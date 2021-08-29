@@ -18,9 +18,9 @@ const DashboardDomains = ({ auth0user }) => {
         </Button>
       </div>
       {user?.domainSnapshot?.length > 0 ? (
-        user.domainSnapshot.map((domain, i) => (
+        user?.domainSnapshot?.map((domain, i) => (
           <Link href={`/project/${domain.id}`} key={i}>
-            <a>
+            <a className="mt-4">
               <Card hoverable>{domain.name}</Card>
             </a>
           </Link>

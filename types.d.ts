@@ -18,7 +18,13 @@ export interface Domain {
   bug: Bug[];
   feature: Feature[];
   feedback: Feedback[];
-  contact: any[];
+  contact: Contact;
+}
+
+export interface Contact {
+  email: string;
+  address: string;
+  phone: string;
 }
 
 export interface Bug {
@@ -28,7 +34,6 @@ export interface Bug {
   steps: string;
 }
 export interface Options {
-  checked: boolean;
   faq: boolean;
   bug: boolean;
   feature: boolean;

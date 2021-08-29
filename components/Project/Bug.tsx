@@ -23,14 +23,14 @@ const Bug = ({ bugReports }: Props) => {
         <Card className="!my-2 flex" key={i}>
           <div className="flex flex-col">
             <Text h5>{bug.bug}</Text>
-            <Text>{bug.steps}</Text>
+            <Text className="!mt-0">{bug.steps}</Text>
             <small className="font-semibold text-gray-400">
               Added at:{" "}
               <span className="font-normal">
                 {new Date(bug.date).toLocaleString()}
               </span>
             </small>
-            {bug.email.length > 0 && (
+            {bug?.email?.length > 0 && (
               <small className="font-semibold text-gray-400">
                 Reported by:{" "}
                 <a

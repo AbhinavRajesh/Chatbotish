@@ -13,6 +13,8 @@ import Setup from "@components/Project/Setup";
 import Bug from "@components/Project/Bug";
 import Feedback from "@components/Project/Feedback";
 import Settings from "@components/Project/Settings";
+import Feature from "@components/Project/Feature";
+import Footer from "@components/Footer";
 
 export default withPageAuthRequired(function Project({ user: auth0user }) {
   const [projectDetails, setProjectDetails] = useState<Domain>(null);
@@ -29,6 +31,7 @@ export default withPageAuthRequired(function Project({ user: auth0user }) {
     const project = (await (
       await db.collection("project").doc(projectId).get()
     ).data()) as Domain;
+    console.log(project);
     if (project) setProjectDetails(project);
   };
 
@@ -38,6 +41,8 @@ export default withPageAuthRequired(function Project({ user: auth0user }) {
         return <Bug bugReports={projectDetails.bug} />;
       case "feedback":
         return <Feedback feedback={projectDetails.feedback} />;
+      case "feature":
+        return <Feature featureRequests={projectDetails.feature} />;
       default:
         return <div>{componentName}</div>;
     }
@@ -60,7 +65,9 @@ export default withPageAuthRequired(function Project({ user: auth0user }) {
               </Tabs.Item>
               {Object.entries(projectDetails.enabled).map(
                 ([key, val], i) =>
-                  val && (
+                  val &&
+                  key !== "faq" &&
+                  key !== "contact" && (
                     <Tabs.Item
                       label={key[0].toUpperCase() + key.slice(1)}
                       value={key}
@@ -71,13 +78,17 @@ export default withPageAuthRequired(function Project({ user: auth0user }) {
                   )
               )}
               <Tabs.Item label="Settings" value="settings">
-                <Settings id={router.query.id as string} />
+                <Settings
+                  id={router.query.id as string}
+                  project={projectDetails.name}
+                />
               </Tabs.Item>
             </Tabs>
           </div>
         ) : (
           <Loading type="success" />
         )}
+        <Footer />
       </div>
     );
   } else {

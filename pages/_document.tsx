@@ -15,7 +15,11 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="apple-touch-icon" href="/logo192.png"></link>
+          <meta name="theme-color" content="#113300" />
+        </Head>
         <body>
           <Main />
           <NextScript />

@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { Contact } from "types";
 import BottomBar from "../BottomBar";
 import TopBar from "../TopBar";
 
@@ -14,6 +15,7 @@ interface Props {
     question: string;
     answer: string;
   }[];
+  contacts: Contact;
 }
 
 const Screen = ({
@@ -24,6 +26,7 @@ const Screen = ({
   feedback,
   text,
   faqs,
+  contacts,
 }: Props) => {
   const [selected, setSelected] = useState<number>(0);
 
@@ -43,7 +46,7 @@ const Screen = ({
         selected={selected}
         setSelected={setSelected}
       />
-      <BottomBar selected={selected} faqs={faqs} />
+      <BottomBar selected={selected} faqs={faqs} contacts={contacts} />
       <div className="chatbotish__powered">
         Powered by <a href="http://localhost:3000">Chatbotish</a>
       </div>

@@ -62,7 +62,7 @@ const Setup = ({ id }: Props) => {
           },
           {
             label: "Import 'Script' from 'next/script'",
-            snippet: `<Script src='${WIDGET_URL}/script.js' data-chatbotish data-id='${id}' strategy='afterInteractive'></Script>`,
+            snippet: `<Script src='${WIDGET_URL}/script.js' data-chatbotish data-id='${id}' strategy='lazyOnload'></Script>`,
           },
         ],
       },

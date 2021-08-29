@@ -6,8 +6,9 @@ import { Button, Card, Input, Text, Toggle, useToasts } from "@geist-ui/react";
 import { UserContext } from "@context/UserContext";
 import { useRouter } from "next/router";
 import { useContext, useEffect, useState } from "react";
-import { User } from "types";
+import { Contact as ContactInterface, Domain, User } from "types";
 import { db } from "@utils/firebase";
+import Contact from "@components/New/Contact";
 
 export default withPageAuthRequired(function New({ user: auth0user }) {
   const [projectName, setProjectName] = useState<string>("");
@@ -28,6 +29,8 @@ export default withPageAuthRequired(function New({ user: auth0user }) {
   const [faqs, setFaqs] = useState<
     { id: number; question: string; answer: string }[]
   >([]);
+  const [contacts, setContacts] = useState<ContactInterface>(null);
+  const [showContact, setShowContact] = useState<boolean>(false);
 
   const router = useRouter();
   const { setUser } = useContext(UserContext);
@@ -57,7 +60,7 @@ export default withPageAuthRequired(function New({ user: auth0user }) {
       });
     }
     if (feedback || bug || feature || faq || contact) {
-      const data = {
+      const data: Domain = {
         name: projectName,
         domain: domain,
         greeting: greeting,
@@ -72,11 +75,10 @@ export default withPageAuthRequired(function New({ user: auth0user }) {
         bug: [],
         feature: [],
         faq: [],
-        contact: [],
+        contact: null,
       };
       if (faq) data.faq = faqs;
-      // ! Need to implement the contact
-      if (contact) data.contact = [];
+      if (contact) data.contact = contacts;
       try {
         const project = await db.collection("project").add(data);
         const userRef = db.collection("users").doc(auth0user.email);
@@ -206,7 +208,10 @@ export default withPageAuthRequired(function New({ user: auth0user }) {
                 <Toggle
                   size="large"
                   checked={faq}
-                  onChange={(e) => setFaq(e.target.checked)}
+                  onChange={(e) => {
+                    setFaq(e.target.checked);
+                    if (!e.target.checked) setFaqs(null);
+                  }}
                 />
               </div>
               {faq ? <FAQ faqs={faqs} setFaqs={setFaqs} /> : null}
@@ -217,9 +222,38 @@ export default withPageAuthRequired(function New({ user: auth0user }) {
                 <Toggle
                   size="large"
                   checked={contact}
-                  onChange={(e) => setContact(e.target.checked)}
+                  onChange={(e) => {
+                    setContact(e.target.checked);
+                    if (!e.target.checked) setFaqs(null);
+                  }}
                 />
               </div>
+              {!showContact && contact ? (
+                <Contact
+                  contacts={contacts}
+                  setContacts={setContacts}
+                  setShowContact={setShowContact}
+                />
+              ) : null}
+              {showContact && (
+                <Card>
+                  {Object.entries(contacts).map(
+                    ([key, value]) =>
+                      value.length > 0 && (
+                        <Text key={key}>
+                          <span className="capitalize">{key}</span>:{" "}
+                          <b>{value}</b>
+                        </Text>
+                      )
+                  )}
+                  <Button
+                    type="success-light"
+                    onClick={() => setShowContact(false)}
+                  >
+                    Edit Contact Details
+                  </Button>
+                </Card>
+              )}
             </Card>
             <Button
               loading={loading}
@@ -243,6 +277,7 @@ export default withPageAuthRequired(function New({ user: auth0user }) {
               feedback={feedback}
               text={greeting}
               faqs={faqs}
+              contacts={contacts}
             />
           </div>
         </div>

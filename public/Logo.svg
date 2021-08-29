@@ -1,0 +1,37 @@
+<svg width="762" height="762" viewBox="0 0 762 762" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="762" height="762">
+<circle cx="382.5" cy="332.5" r="12.5" fill="#2563EB"/>
+<circle cx="383.5" cy="220.5" r="40.5" fill="#2563EB"/>
+<circle cx="383.5" cy="76.5" r="76.5" fill="#2563EB"/>
+<circle cx="347.5" cy="347.5" r="12.5" fill="#2563EB"/>
+<circle cx="269.5" cy="269.5" r="40.5" fill="#2563EB"/>
+<circle cx="169" cy="169" r="77" fill="#2563EB"/>
+<circle cx="332.5" cy="381.5" r="12.5" fill="#2563EB"/>
+<circle cx="220.5" cy="380.5" r="40.5" fill="#2563EB"/>
+<circle cx="76.5" cy="378.5" r="76.5" fill="#2563EB"/>
+<circle cx="381.5" cy="431.5" r="12.5" fill="#2563EB"/>
+<circle cx="380.5" cy="543.5" r="40.5" fill="#2563EB"/>
+<circle cx="378.5" cy="685.5" r="76.5" fill="#2563EB"/>
+<circle cx="346.5" cy="417.5" r="12.5" fill="#2563EB"/>
+<circle cx="266.5" cy="497.5" r="40.5" fill="#2563EB"/>
+<circle cx="163.5" cy="598.5" r="76.5" fill="#2563EB"/>
+<circle cx="431.5" cy="380.5" r="12.5" fill="#2563EB"/>
+<ellipse cx="543.5" cy="377" rx="40.5" ry="41" fill="#2563EB"/>
+<ellipse cx="685.5" cy="371.5" rx="76.5" ry="77.5" fill="#2563EB"/>
+<circle cx="417.5" cy="346.5" r="12.5" fill="#2563EB"/>
+<circle cx="497.5" cy="266.5" r="40.5" fill="#2563EB"/>
+<circle cx="598.5" cy="163.5" r="76.5" fill="#2563EB"/>
+<circle cx="417.5" cy="417.5" r="12.5" fill="#2563EB"/>
+<circle cx="497.5" cy="497.5" r="40.5" fill="#2563EB"/>
+<circle cx="598.5" cy="598.5" r="76.5" fill="#2563EB"/>
+</mask>
+<g mask="url(#mask0)">
+<rect x="-4" width="765" height="762" fill="url(#paint0_linear)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear" x1="761" y1="-2.28885e-05" x2="-3.99998" y2="762" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0094FF"/>
+<stop offset="1" stop-color="#4CCD51"/>
+</linearGradient>
+</defs>
+</svg>

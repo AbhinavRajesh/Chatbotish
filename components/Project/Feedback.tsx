@@ -15,7 +15,8 @@ const Feedback = ({ feedback }: Props) => {
     }
   }, [feedback]);
 
-  if (feedback.length === 0) return <div>No bugs reported 🤗</div>;
+  if (feedback.length === 0)
+    return <div>No feedbacks. Check again later 🤗</div>;
 
   return (
     <div className="flex flex-col">
@@ -29,7 +30,7 @@ const Feedback = ({ feedback }: Props) => {
                 {new Date(feedback.date).toLocaleString()}
               </span>
             </small>
-            {feedback.email.length > 0 && (
+            {feedback?.email?.length > 0 && (
               <small className="font-semibold text-gray-400">
                 Feedback from:{" "}
                 <a

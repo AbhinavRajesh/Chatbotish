@@ -2,8 +2,9 @@ import FAQ from "@components/New/FAQ";
 import Screen from "@components/Widget/Screen";
 import { Button, Card, Input, Text, Toggle, useToasts } from "@geist-ui/react";
 import { useEffect, useState } from "react";
-import { Domain } from "types";
+import { Contact as ContactInterface, Domain } from "types";
 import { db } from "@utils/firebase";
+import Contact from "@components/New/Contact";
 
 interface Props {
   id: string;
@@ -29,6 +30,8 @@ export default function EditProject({ id }: Props) {
   const [faqs, setFaqs] = useState<
     { id: number; question: string; answer: string }[]
   >([]);
+  const [contacts, setContacts] = useState<ContactInterface>(null);
+  const [showContact, setShowContact] = useState<boolean>(false);
 
   useEffect(() => {
     if (id) getData();
@@ -51,6 +54,8 @@ export default function EditProject({ id }: Props) {
     setFaq(data.enabled.faq);
 
     setFaqs(data.faq.map((f, i) => ({ ...f, id: i })));
+    setContacts(data.contact);
+    if (data.contact !== null) setShowContact(true);
   };
 
   const editProject = async (e: any) => {
@@ -93,11 +98,10 @@ export default function EditProject({ id }: Props) {
         bug: data.bug,
         feature: data.feedback,
         faq: [],
-        contact: data.feedback,
+        contact: null,
       };
       if (faq) newData.faq = faqs;
-      // ! Need to implement the contact
-      if (contact) newData.contact = [];
+      if (contact) newData.contact = contacts;
       try {
         await db.collection("project").doc(id).set(newData, { merge: true });
         setToast({
@@ -210,7 +214,10 @@ export default function EditProject({ id }: Props) {
                 <Toggle
                   size="large"
                   checked={faq}
-                  onChange={(e) => setFaq(e.target.checked)}
+                  onChange={(e) => {
+                    setFaq(e.target.checked);
+                    if (!e.target.checked) setFaqs(null);
+                  }}
                 />
               </div>
               {faq ? <FAQ faqs={faqs} setFaqs={setFaqs} /> : null}
@@ -221,9 +228,38 @@ export default function EditProject({ id }: Props) {
                 <Toggle
                   size="large"
                   checked={contact}
-                  onChange={(e) => setContact(e.target.checked)}
+                  onChange={(e) => {
+                    setContact(e.target.checked);
+                    if (!e.target.checked) setContacts(null);
+                  }}
                 />
               </div>
+              {!showContact && contact ? (
+                <Contact
+                  contacts={contacts}
+                  setContacts={setContacts}
+                  setShowContact={setShowContact}
+                />
+              ) : null}
+              {showContact && (
+                <Card>
+                  {Object.entries(contacts).map(
+                    ([key, value]) =>
+                      value.length > 0 && (
+                        <Text key={key}>
+                          <span className="capitalize">{key}</span>:{" "}
+                          <b>{value}</b>
+                        </Text>
+                      )
+                  )}
+                  <Button
+                    type="success-light"
+                    onClick={() => setShowContact(false)}
+                  >
+                    Edit Contact Details
+                  </Button>
+                </Card>
+              )}
             </Card>
             <Button
               loading={loading}
@@ -232,7 +268,7 @@ export default function EditProject({ id }: Props) {
               className="!mt-4"
               form="new"
             >
-              Add Project
+              Save Project
             </Button>
           </div>
           <div className="flex flex-col items-center justify-start">
@@ -247,6 +283,7 @@ export default function EditProject({ id }: Props) {
               feedback={feedback}
               text={greeting}
               faqs={faqs}
+              contacts={contacts}
             />
           </div>
         </div>

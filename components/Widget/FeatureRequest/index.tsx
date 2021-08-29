@@ -1,9 +1,6 @@
 const FeatureRequest = () => {
   return (
-    <form
-      onSubmit={() => console.log("Submitting...")}
-      className="chatbotish__feedbackForm"
-    >
+    <form className="chatbotish__feedbackForm">
       <label htmlFor="feature">Feature</label>
       <input
         type="text"

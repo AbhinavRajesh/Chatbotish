@@ -31,7 +31,6 @@ export default withPageAuthRequired(function Project({ user: auth0user }) {
     const project = (await (
       await db.collection("project").doc(projectId).get()
     ).data()) as Domain;
-    console.log(project);
     if (project) setProjectDetails(project);
   };
 

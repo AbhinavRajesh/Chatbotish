@@ -18,7 +18,6 @@ const Contact = ({ contacts, setContacts, setShowContact }: Props) => {
   const [toasts, setToast] = useToasts();
 
   useEffect(() => {
-    console.log(contacts);
     if (contacts !== null) {
       setEmail(contacts.email);
       setPhone(contacts.phone);

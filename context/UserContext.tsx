@@ -26,7 +26,7 @@ const UserProvider = (props: any) => {
 
   const getUser = async () => {
     const email: string = auth0User?.email;
-    // const customToken = await auth0User..getToken("firebase");
+    // const customToken = await auth0User.getToken();
     // await firebase.auth().signInWithCustomToken(customToken as any);
 
     if (email) {

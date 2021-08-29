@@ -19,6 +19,8 @@ class MyDocument extends Document {
           <link rel="manifest" href="/manifest.json" />
           <link rel="apple-touch-icon" href="/logo192.png"></link>
           <meta name="theme-color" content="#113300" />
+          <meta name="og:image" content="/ogImage.jpg" />
+          <meta name="twitter:image" content="/ogImage.jpg" />
           <link
             href="https://chatbotish.vercel.app/index.css"
             rel="stylesheet"

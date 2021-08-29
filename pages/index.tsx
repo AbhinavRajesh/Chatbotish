@@ -13,6 +13,7 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof user !== "undefined") router.push("/dashboard");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   if (isLoading) return "Loading...";

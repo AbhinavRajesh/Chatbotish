@@ -35,6 +35,7 @@ export default function EditProject({ id }: Props) {
 
   useEffect(() => {
     if (id) getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   const getData = async () => {

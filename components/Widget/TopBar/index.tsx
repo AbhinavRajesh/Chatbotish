@@ -45,6 +45,7 @@ const TopBar = ({ options, selected, setSelected, text }: Props) => {
       }
     });
     if (!valid.includes(selected)) setSelected(valid[0]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [options]);
 
   return (

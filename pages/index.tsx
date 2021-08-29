@@ -16,8 +16,6 @@ export default function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
-  if (isLoading) return "Loading...";
-
   return (
     <>
       <NextSeo
@@ -81,7 +79,7 @@ export default function Home() {
             </Button>
           </div>
         </div>
-        <Features />
+        {typeof window !== "undefined" && <Features />}
       </main>
       <Footer />
     </>

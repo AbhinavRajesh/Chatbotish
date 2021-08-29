@@ -1,4 +1,5 @@
 import { Divider, Snippet, Text } from "@geist-ui/react";
+import { WIDGET_URL } from "@utils/constants";
 import { useEffect, useState } from "react";
 
 interface Props {
@@ -18,14 +19,7 @@ interface SnippetInterface {
 const Setup = ({ id }: Props) => {
   const [snippets, setSnippets] = useState<Snippets[]>([]);
 
-  const WIDGET_URL = "http://localhost:3000";
-
   useEffect(() => {
-    // <script
-    //     src='https://staticshield.vercel.app/script.js'
-    //     data-site-id='6c257853-1c46-4a8b-9e7a-bb9f3a4d8f9d'
-    //     data-cap='Test'
-    // ></script>
     if (id) {
       createSnippet(id);
     }

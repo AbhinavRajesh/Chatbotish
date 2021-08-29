@@ -37,9 +37,9 @@ class MyDocument extends Document {
             data-description="Support me on Buy me a coffee!"
             data-message="Hope adding Chatbotish to your website increased the user engagement. If so consider buying me a coffee, it would make my day :D"
             data-color="#5F7FFF"
-            data-position="Left"
+            data-position="Right"
             data-x_margin="18"
-            data-y_margin="18"
+            data-y_margin="90"
             async
           ></script>
         </Head>

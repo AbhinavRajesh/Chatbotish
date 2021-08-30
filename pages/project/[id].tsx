@@ -54,7 +54,7 @@ export default withPageAuthRequired(function Project({ user: auth0user }) {
       <div className="max-w-5xl mx-auto">
         <Header auth0user={auth0user} />
         {projectDetails !== null ? (
-          <div className="px-16 flex flex-col">
+          <div className="px-4 flex flex-col">
             <div className="flex w-full items-center justify-start mb-4">
               <h1 className="!m-0 text-2xl">{projectDetails?.name}</h1>
             </div>

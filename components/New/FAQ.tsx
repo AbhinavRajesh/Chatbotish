@@ -46,7 +46,7 @@ const FAQ = ({ faqs, setFaqs }: Props) => {
   };
 
   return (
-    <div className="flex flex-col items-start px-4">
+    <div className="flex flex-col items-start">
       <div className="mb-2 flex flex-col items-start">
         <Input
           clearable

@@ -131,8 +131,9 @@ export default withPageAuthRequired(function New({ user: auth0user }) {
       <form
         id="new"
         onSubmit={addProject}
-        className="flex flex-col items-start justify-center my-8 "
+        className="flex flex-col items-start justify-center my-8 px-4"
       >
+        <Text h3>Create New Project</Text>
         <Input
           clearable
           placeholder="Enter Project Name"
@@ -167,7 +168,7 @@ export default withPageAuthRequired(function New({ user: auth0user }) {
           </Text>
         </Input>
         <div className="grid grid-cols-2 gap-5 w-full">
-          <div className="w-full">
+          <div className="w-full col-span-2 lg:col-span-1">
             <Text h4 className="!mt-4">
               Required features
             </Text>
@@ -265,7 +266,7 @@ export default withPageAuthRequired(function New({ user: auth0user }) {
               Add Project
             </Button>
           </div>
-          <div className="flex flex-col items-center justify-start">
+          <div className="hidden lg:flex flex-col items-center justify-start">
             <Text h4 className="w-full !mt-4">
               Preview
             </Text>

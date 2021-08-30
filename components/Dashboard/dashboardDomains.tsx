@@ -10,10 +10,15 @@ const DashboardDomains = ({ auth0user }) => {
   const router = useRouter();
 
   return (
-    <div className="px-16 flex flex-col">
+    <div className="px-4 flex flex-col">
       <div className="flex w-full items-center justify-between mb-4">
-        <h1 className="!m-0">Dashboard</h1>
-        <Button auto type="success-light" onClick={() => router.push("/new")}>
+        <h1 className="!m-0 text-2xl md:text-3xl lg:text-4xl">Dashboard</h1>
+        <Button
+          auto
+          type="success-light"
+          onClick={() => router.push("/new")}
+          className="!text-xs !font-bold md:!text-base md:!font-normal"
+        >
           Add Chatbotish
         </Button>
       </div>

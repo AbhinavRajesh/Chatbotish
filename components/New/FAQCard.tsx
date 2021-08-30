@@ -14,10 +14,10 @@ const FAQCard = ({ question, answer, id, removeFAQ }: Props) => {
       <Text p>{answer}</Text>
       <Button
         type="error-light"
-        className="absolute top-0 right-0"
+        className="!text-xs !font-bold md:!text-base md:!font-normal"
         onClick={() => removeFAQ(id)}
       >
-        <Text h5>Remove</Text>
+        Remove
       </Button>
     </Card>
   );

@@ -5,18 +5,18 @@ import logo from "@public/Logo.svg";
 
 const Header = ({ auth0user }) => {
   return (
-    <div className="flex items-center justify-between px-16 py-3 min-h-[6vh]">
+    <div className="flex items-center justify-between px-4 py-3 min-h-[6vh]">
       <h2 className="font-semibold text-2xl w-full flex-[2]">
         <Link href="/dashboard">
           <a className="flex items-center">
             <Image src={logo} alt="C" height="40" width="40" />
-            <h1 className="text-black text-2xl my-0 font-semibold ml-2">
+            <h1 className="hidden md:flex text-black text-2xl my-0 font-semibold ml-2">
               Chatbotish
             </h1>
           </a>
         </Link>
       </h2>
-      <nav className="flex-1 flex justify-between w-full items-center">
+      <nav className="flex-1 flex gap-2 justify-between w-full items-center">
         <Link href="/dashboard">Dashboard</Link>
         <Link href="/new">New</Link>
         <Link href="/api/auth/logout">

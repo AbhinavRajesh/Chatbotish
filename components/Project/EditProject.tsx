@@ -174,7 +174,7 @@ export default function EditProject({ id }: Props) {
           </Text>
         </Input>
         <div className="grid grid-cols-2 gap-5 w-full">
-          <div className="w-full">
+          <div className="w-full col-span-2 lg:col-span-1">
             <Text h4 className="!mt-4">
               Required features
             </Text>
@@ -272,7 +272,7 @@ export default function EditProject({ id }: Props) {
               Save Project
             </Button>
           </div>
-          <div className="flex flex-col items-center justify-start">
+          <div className="hidden lg:flex flex-col items-center justify-start">
             <Text h4 className="w-full !mt-4">
               Preview
             </Text>

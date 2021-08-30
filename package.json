@@ -15,7 +15,7 @@
     "@geist-ui/react": "^2.1.5",
     "firebase": "^8.9.1",
     "inter-ui": "^3.19.2",
-    "next": "11.0.1",
+    "next": "11.1.0",
     "next-pwa": "^5.3.1",
     "next-seo": "^4.26.0",
     "react": "17.0.2",

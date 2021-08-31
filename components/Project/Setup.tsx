@@ -48,7 +48,17 @@ const Setup = ({ id }: Props) => {
         ],
       },
       {
-        title: "NextJS (v11)",
+        title: "NextJS (On all pages)",
+        snippets: [
+          {
+            label:
+              "Add the below snippet to Head tag on pages/_document.js file",
+            snippet: `<link href="${WIDGET_URL}/index.css" rel="stylesheet" /><script src='${WIDGET_URL}/index.js' data-chatbotish data-id='${id}' async></script>`,
+          },
+        ],
+      },
+      {
+        title: "NextJS (v11) Only on specific page",
         snippets: [
           {
             label: "Inject this link tag in NextJS <Head> tag",
@@ -61,7 +71,7 @@ const Setup = ({ id }: Props) => {
         ],
       },
       {
-        title: "NextJS (v10 and below)",
+        title: "NextJS (v10 and below) Only on specific page",
         snippets: [
           {
             label: "Add this snippet to <Head> tag of NextJS",

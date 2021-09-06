@@ -25,21 +25,9 @@
 <a href="https://twitter.com/intent/tweet?text=Checkout%20chatbotish.vercel.app%20by%20@AbhinavRajesh%20An%20easy%20to%20use%20widget%20to%20add%20to%20your%20amazing%20web%20apps%20to%20increase%20user%20engagement.%20With%20Chatbotish,%20you%20can%20place%20a%20widget%20to%20your%20website%20and%20make%20your%20customers%20engage%20with%20your%20website!%20#DEVCommunity"><img src="https://img.shields.io/twitter/url?label=Share%20on%20Twitter&style=social&url=https%3A%2F%2Fgithub.com%2Fabhinavrajesh%2Fchatbotish"></a>
 
 </p>
-<!-- <p align="center">
-<a
-   href="https://www.producthunt.com/posts/aura-b260f046-6bf7-439f-8cd7-8521db48ae46?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-aura-b260f046-6bf7-439f-8cd7-8521db48ae46"
-   target="_blank"
-   rel="noopener noreferrer"
->
-   <img
-      src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=306462&theme=dark"
-      alt="Aura - See your mood in a whole new light | Product Hunt"
-      style="width: 250px; height: 54px;"
-      width="250"
-      height="54"
-   />
-</a>
-</p> -->
+<p align="center">
+<a href="https://www.producthunt.com/posts/chatbotish?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-chatbotish" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=310429&theme=dark" alt="Chatbotish - Adding feedback, bug report form for your app made easy | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+</p>
 <h1 align="center">Introducing Chatbotish: Adding Feedback, FAQ, Bug report, Feature request to your website made easy.</h1>
 
 [Chatbotish](https://chatbotish.vercel.app) is an easy to use widget to add to your amazing web apps to increase user engagement. With Chatbotish, you can place a widget to your website and make your customers engage with your website, more than just normal browsing.
